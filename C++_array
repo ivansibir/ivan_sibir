@@ -1,0 +1,48 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    srand(time(NULL));
+    const int SIZE = 10;
+    int arr[SIZE];
+    bool exist_number;
+
+    for (int i = 0; i < SIZE;)
+    {
+        bool exist_number = false;
+        int new_number = rand() % 20;
+
+        for (int j = 0; j < i; j++)
+        {
+            if (arr[j] == new_number)
+            {
+                exist_number = true;
+                break;
+            }
+        }
+
+        if (!exist_number)
+        {
+            arr[i] = new_number;
+            i++;
+        }
+    }
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << arr[i] << endl;
+    }
+
+    int smallest_number = arr[0];
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (smallest_number > arr[i])
+            {
+            smallest_number = arr[i];
+            }
+    }
+    cout << endl;
+    cout << "The smallest number is " << smallest_number << "." << endl;
+};
